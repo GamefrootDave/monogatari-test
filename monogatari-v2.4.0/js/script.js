@@ -127,23 +127,12 @@ monogatari.script({
 		"show background url(\"https://test-ai-writing.s3.ap-southeast-2.amazonaws.com/users/epwiYLy73PNejBfvKn6LTJWtEKu1/images/1743114317150_vhj2j3c6.jpg\")",
 		"clear",
 		"nvl <p style=\"text-align: left\"> Link test <span data-action=\"jump\" data-jump=\"2\" style=\"text-decoration: underline;\" >Go to south the bar</span></p><p></p>",
-		//"show background LivingRoom with fadeIn duration 1s",//Removed for brevity
-		//"nvl <p> show character Harrison normal center with fadeIn</p><p></p>",
 		"Harrison <p> Dialog 1 test</p><p></p>",
-		//"show background Sky with fadeIn duration 1s",
-		//"nvl <p> hide character Harrison with fadeOut</p><p></p>",
-		//"nvl <p> show character Yui normal right with fadeIn</p><p></p>",
-		//"Yui <p> Yui test</p><p></p>",
-		//"nvl <p> hide character Yui normal right with fadeOut</p><p></p>",
 		"show character Harrison peace right",//here is where the error is thrown when reversing back through history;
 		"Harrison <p> Peace!</p><p></p>",
-		"centered <p> Centered test.</p><p></p>",
-		"nvl <p> NVL mode test.</p>",
 		{
 			"Choice": {
 				"Choice_2": { "Text": "Go south to The Bar", "Do": "jump 2" },
-				//"Choice_3": { "Text": "Go west to The Cloakroom", "Do": "jump 3" },//Removing these choices for brevity
-				//"Choice_11": { "Text": "Try the Exit to the north", "Do": "jump 11" }
 			}
 		}
 	],
