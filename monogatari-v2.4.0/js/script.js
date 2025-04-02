@@ -139,7 +139,7 @@ monogatari.script({
 	"2": [
 		"clear",
 		"show background url(\"https://test-ai-writing.s3.ap-southeast-2.amazonaws.com/users/epwiYLy73PNejBfvKn6LTJWtEKu1/images/1743114338436_05ljenyg.jpg\") with fadeIn duration 5s",
-		"nvl <p> Now that you've hit the second label, you can press the back button to go back in history to see the bug. Attempting to reverse back to the 'show character' command on line 138 throws an error (after Harrison says 'Peace!')</p><p></p>",
+		"nvl <p> Now that you've hit the second label, you can press the back button to go back in history to see the bug. Attempting to reverse back to the 'show character' command throws an error (after Harrison says 'Peace!')</p><p></p>",
 		"Harrison <p> If you contine past here, the game will end!</p>",
 		"end"
 	]
