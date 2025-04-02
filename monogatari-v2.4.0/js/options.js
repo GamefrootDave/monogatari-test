@@ -10,7 +10,7 @@
 'use strict';
 /* global Monogatari */
 
-const monogatari  = Monogatari.default;
+const monogatari = Monogatari.default;
 
 monogatari.settings({
 
@@ -23,7 +23,8 @@ monogatari.settings({
 	'Version': '0.1.0',
 
 	// Initial Label *
-	'Label': 'Start',
+	//'Label': 'Start',
+	'Label': '1',
 
 	// Number of AutoSave Slots
 	'Slots': 10,
@@ -46,6 +47,7 @@ monogatari.settings({
 
 	// Turn main menu on/off; Default: true *
 	'ShowMainScreen': true,
+	//'ShowMainScreen': false,
 
 	// Turn image preloading on/off, Default: true
 	'Preload': true,
@@ -71,6 +73,7 @@ monogatari.settings({
 	// Enables or disables the typing text animation in NVL dialogs for the
 	// whole game.
 	'NVLTypeAnimation': true,
+	//'NVLTypeAnimation': false,
 
 	// Enables or disables the typing animation for the narrator.
 	// If the previous property was set to false, the narrator won't shown
@@ -98,6 +101,21 @@ monogatari.settings({
 	// Define the directories where the assets are located. The root directory is
 	// the holder for the other asset specific directories, this directories are
 	// used when retrieving the files on the game.
+	// note: stripping asset paths so external URLs can be used;
+	'AssetsPath': {
+		'root': 'https://',
+		'characters': '',
+		'icons': '',
+		'images': '',
+		'music': '',
+		'scenes': '',
+		'sounds': '',
+		'ui': '',
+		'videos': '',
+		'voices': '',
+		'gallery': ''
+	},
+	/*
 	'AssetsPath': {
 		'root': 'assets',
 		'characters': 'characters',
@@ -111,6 +129,7 @@ monogatari.settings({
 		'voices': 'voices',
 		'gallery': 'gallery'
 	},
+	*/
 
 	// Name of the Splash Screen Label. If a name is given and a label with that
 	// name exists on the game's script, it will be used to show a splash screen
@@ -145,7 +164,7 @@ monogatari.settings({
 });
 
 // Initial Settings
-monogatari.preferences ({
+monogatari.preferences({
 
 	// Initial Language for Multilanguage Games or for the Default GUI Language.
 	'Language': 'English',

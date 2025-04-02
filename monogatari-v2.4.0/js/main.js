@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /* global Monogatari */
 /* global monogatari */
 
@@ -27,12 +27,52 @@ const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
 
+//Some extra setup so the parent page and iframe can talk to each other once Monogatari is ready - not necessary here, but kept for demonstration;
+//Preload images sent from parent document;
+async function preloadImages(imageUrls) {
+  const loadImage = (url) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(url);
+      img.onerror = () => reject(url);
+      img.src = url;
+    });
+  };
 
-$_ready (() => {
-	// 2. Inside the $_ready function:
+  try {
+    await Promise.all(imageUrls.map(loadImage));
+    console.log("Preloaded images completed:", imageUrls);
+    window.parent.postMessage({ type: "PRELOAD_COMPLETE" }, "*");
+  } catch (error) {
+    console.error("Failed to preload some images:", error);
+    // Still notify parent but with error
+    window.parent.postMessage(
+      {
+        type: "PRELOAD_COMPLETE",
+        error: "Some images failed to load",
+      },
+      "*"
+    );
+  }
+}
 
-	monogatari.init ('#monogatari').then (() => {
-		// 3. Inside the init function:
+// Add message listener for image preloading
+window.addEventListener("message", (event) => {
+  if (event.data.type === "PRELOAD_IMAGES") {
+    preloadImages(event.data.imageUrls);
+  }
+});
 
-	});
+
+$_ready(() => {
+  // 2. Inside the $_ready function:
+
+  monogatari.init("#monogatari").then(() => {
+    // 3. Inside the init function:
+
+    //make monogatari available to the window object so parent of iframe can access it;
+    window.monogatari = monogatari;
+    window.$_ = $_;
+    window.parent.postMessage({ type: "MONOGATARI_READY" }, "*");
+  });
 });
